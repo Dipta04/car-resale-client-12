@@ -9,6 +9,7 @@ const BookingModal = ({ carOne, carTwo }) => {
     const handleBooking = event =>{
         event.preventDefault();
         const form = event.target;
+        const image = form.image.value;
         const carName = form.carname.value;
         const price = form.price.value;
         const name = form.name.value;
@@ -19,6 +20,7 @@ const BookingModal = ({ carOne, carTwo }) => {
             carName: carName,
             price: price,
             buyer: name,
+            image,
             email,
             location,
             phone
@@ -49,6 +51,7 @@ const BookingModal = ({ carOne, carTwo }) => {
                     <div className="modal-box relative">
                         <label htmlFor="booking-modal-one" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                         <form onSubmit={handleBooking}>
+                        <input name='image' type="text" placeholder="Type here" defaultValue={carOne.picture} className="input input-bordered w-full mb-2" disabled/>   
                         <input name='carname' type="text" placeholder="Type here" defaultValue={carOne.name} className="input input-bordered w-full mb-2" disabled/>
                         <input name='price'  type="text" defaultValue={carOne.resale} className="input input-bordered w-full mb-2" disabled/>
                         <input name='name' type="text" placeholder="Type here" defaultValue={user?.displayName} className="input input-bordered w-full mb-2" disabled/>
@@ -67,6 +70,7 @@ const BookingModal = ({ carOne, carTwo }) => {
                     <div className="modal-box relative">
                         <label htmlFor="booking-modal-two" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                         <form onSubmit={handleBooking}>
+                        <input name='image' type="text" placeholder="Type here" defaultValue={carOne.picture} className="input input-bordered w-full mb-2" disabled/>   
                         <input name='carname' type="text" placeholder="Type here" defaultValue={carTwo.name} className="input input-bordered w-full mb-2" disabled/>
                         <input name='price'  type="text" placeholder="Type here" defaultValue={carTwo.resale} className="input input-bordered w-full mb-2" disabled/>
                         <input name='name' type="text" placeholder="Type here" defaultValue={user?.displayName} className="input input-bordered w-full mb-2" disabled/>
