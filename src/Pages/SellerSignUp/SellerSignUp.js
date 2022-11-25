@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider';
 import useToken from '../../Hooks/useToken';
 
-const SignUp = () => {
+const SellerSignUp = () => {
 
     const { register, handleSubmit, formState: { errors } } = useForm();
     const { createUser, updateUser } = useContext(AuthContext);
@@ -20,19 +20,18 @@ const SignUp = () => {
     }
 
     const handleSignUp = (data) => {
-        // console.log(data);
         setSignUpError('');
-        createUser(data.email, data.password)
+        createUser(data.email, data.password, data.role)
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                toast('User Successfully Created.')
+                toast('Seller Successfully Created.')
                 const userInfo = {
                     displayName: data.name
                 }
                 updateUser(userInfo)
                     .then(() => {
-                        saveUser(data.name, data.email);
+                        saveUser(data.name, data.email, data.role);
                     })
                     .catch(error => console.log(error));
             })
@@ -42,8 +41,8 @@ const SignUp = () => {
             });
     }
 
-    const saveUser = (name, email) => {
-        const user = { name, email };
+    const saveUser = (name, email, role) => {
+        const user = { name, email, role };
         fetch('http://localhost:5000/users', {
             method: 'POST',
             headers: {
@@ -61,15 +60,13 @@ const SignUp = () => {
     return (
         <div className='h-[800px] flex justify-center items-center'>
             <div className='w-96 p-7'>
-                <h2 className='text-2xl font-bold text-center text-teal-600'>Sign Up</h2>
+                <h2 className='text-2xl font-bold text-center text-teal-600'>Seller Sign Up</h2>
                 <form onSubmit={handleSubmit(handleSignUp)}>
 
-                    {/* daisyUi text input */}
                     <div className="form-control w-full max-w-xs">
                         <label className="label">
                             <span className="label-text">Name</span>
                         </label>
-                        {/* upor theka anlam cut kore */}
                         <input type="text" {...register("name", {
                             required: "Name is Required"
                         })} className="input input-bordered w-full max-w-xs" />
@@ -81,9 +78,21 @@ const SignUp = () => {
 
                     <div className="form-control w-full max-w-xs">
                         <label className="label">
+                            <span className="label-text">Role</span>
+                        </label>
+                        <input type="text" {...register("role", {
+                            required: "role is Required"
+                        })} defaultValue='seller' className="input input-bordered w-full max-w-xs" />
+                        {
+                            // errors.role && <p className='text-red-500'>{errors.role.message}</p>
+                        }
+
+                    </div>
+
+                    <div className="form-control w-full max-w-xs">
+                        <label className="label">
                             <span className="label-text">Email</span>
                         </label>
-                        {/* upor theka anlam cut kore */}
                         <input type="email" {...register("email", {
                             required: true
                         })} className="input input-bordered w-full max-w-xs" />
@@ -131,4 +140,4 @@ const SignUp = () => {
     );
 };
 
-export default SignUp;
+export default SellerSignUp;

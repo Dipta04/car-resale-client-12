@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider';
+import { setToken } from '../../Hooks/setToken';
 import useToken from '../../Hooks/useToken';
 
 const Login = () => {
@@ -42,6 +43,7 @@ const Login = () => {
             const user = result.user;
             console.log(user);
             setLoginUserEmail(user.email)
+            setToken(user);
 
         })
         .catch(error => console.error(error));
