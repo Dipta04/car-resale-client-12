@@ -6,10 +6,10 @@ const Slider = () => {
 
             <div className="carousel">
                 <div id="item1" className="carousel-item w-full">
-                <img src="https://i.ibb.co/X3sbd18/Banner2.jpg" className="w-full" alt=''/>
+                <img src="https://i.ibb.co/M918P6P/Banner.jpg" className="w-full" alt=''/>
                 </div>
                 <div id="item2" className="carousel-item w-full">
-                <img src="https://i.ibb.co/M918P6P/Banner.jpg" className="w-full" alt=''/>
+                <img src="https://i.ibb.co/X3sbd18/Banner2.jpg" className="w-full" alt=''/>
                 </div>
             </div>
             <div className="flex justify-center w-full py-2 gap-2">

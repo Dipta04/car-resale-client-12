@@ -13,7 +13,7 @@ const Product = ({ product }) => {
 
                 <div className="card shadow-xl">
                     <figure><img src={carOne.picture} alt="Shoes" /></figure>
-                    <div className="card-body">
+                    <div className="card-body  bg-slate-100">
                         <h2 className="card-title">{carOne.name}</h2>
                         <p>Location:  {carOne.location}</p>
                         <p>Resale Price:  ${carOne.resale}</p>
@@ -26,7 +26,7 @@ const Product = ({ product }) => {
 
                 <div className="card shadow-xl">
                     <figure><img src={carTwo.picture} alt="Shoes" /></figure>
-                    <div className="card-body">
+                    <div className="card-body  bg-slate-100">
                         <h2 className="card-title">{carTwo.name}</h2>
                         <p>Location: {carTwo.location}</p>
                         <p>Resale Price:  ${carTwo.resale}</p>

@@ -2,7 +2,7 @@ import React from 'react';
 
 const Discount = () => {
     return (
-        <div className="hero my-4">
+        <div className="hero my-4 rounded">
             <div className="hero-content flex-col lg:flex-row">
                 <img src="https://i.ibb.co/rHNrgnX/discount.png" className="max-w-sm rounded-lg shadow-2xl" alt=''/>
                 <div>

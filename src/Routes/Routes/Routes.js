@@ -4,6 +4,7 @@ import Main from "../../Layout/Main";
 import Blog from "../../Pages/Blogs/Blog";
 import Category from "../../Pages/Category/Category";
 import AddProduct from "../../Pages/Dashboard/AddProduct/AddProduct";
+import Advertise from "../../Pages/Dashboard/Advertise/Advertise";
 import Allseller from "../../Pages/Dashboard/Allseller/Allseller";
 import Alluser from "../../Pages/Dashboard/Alluser/Alluser";
 import Myorders from "../../Pages/Dashboard/Myorders/Myorders";

@@ -1,14 +1,12 @@
-import { useQuery } from '@tanstack/react-query';
 import React, { useContext, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../../Contexts/AuthProvider';
-import Loading from '../../Shared/Loading/Loading';
+
 
 const MyProduct = () => {
 
     const { user } = useContext(AuthContext);
-    const [products, setProducts] = useState(null);
-
+    const [products, setProducts] = useState([]);
 
 
     // const { data: products, isLoading, refetch } = useQuery({
@@ -33,10 +31,10 @@ const MyProduct = () => {
         fetch('http://localhost:5000/products', {
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`
-              }
+            }
         })
             .then(res => {
-              return res.json();
+                return res.json();
             })
             .then(data => {
                 // console.log('received', data)
@@ -59,6 +57,21 @@ const MyProduct = () => {
                     setProducts(remaining);
                 }
 
+            })
+    }
+
+    const handleAdvertise = id => {
+        fetch(`http://localhost:5000/products/advertise/${id}`, {
+            method: 'PUT',
+            headers: {
+                authorization: `bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+               if(data.modifiedCount > 0){
+                toast.success('Make advertise successful.')
+               }
             })
     }
 
@@ -91,16 +104,15 @@ const MyProduct = () => {
                                     <td>{product.condition}</td>
                                     <td>{product.price}</td>
                                     <td>available</td>
-                                    <td><label  onClick={()=>handleDelete(product._id)} className="btn btn-sm btn-error">Delete</label></td>
-                                    <td>Advertise</td>
+                                    <td><label onClick={() => handleDelete(product._id)} className="btn btn-sm btn-error">Delete</label></td>
+                                    <td><label onClick={() =>  handleAdvertise(product._id)} className="btn btn-sm btn-accent">Advertise</label></td>
                                 </tr>
-                                )
+                            )
                         }
-
                     </tbody>
                 </table>
             </div>
-
+             
         </div>
     );
 };

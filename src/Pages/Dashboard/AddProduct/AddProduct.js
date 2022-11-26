@@ -8,6 +8,7 @@ const AddProduct = () => {
    const handleAddProducts = event =>{
     event.preventDefault();
     const form = event.target;
+    const image = form.image.value;
     const name = form.name.value;
     const price = form.price.value;
     const condition = form.condition.value;
