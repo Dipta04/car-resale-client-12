@@ -21,7 +21,6 @@ const Product = ({ product }) => {
                         <p>Year Used:  {carOne.use}</p>
                         <p>Post On:  {carOne.post}</p>
                         <p>Seller:  {carOne.seller}</p>
-                        <button className='btn btn-accent'>Book Now</button>
                     </div>
                 </div>
 
@@ -35,7 +34,6 @@ const Product = ({ product }) => {
                         <p>Year Used:  {carTwo.use}</p>
                         <p>Post On:  {carTwo.post}</p>
                         <p>Seller:  {carTwo.seller}</p>
-                        <button className='btn btn-accent'>Book Now</button>
                     </div>
                 </div>
 
