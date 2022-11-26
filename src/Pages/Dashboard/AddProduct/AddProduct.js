@@ -1,7 +1,9 @@
 import React from 'react';
 import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 const AddProduct = () => {
+    const navigate = useNavigate();
 
    const handleAddProducts = event =>{
     event.preventDefault();
@@ -37,6 +39,7 @@ const AddProduct = () => {
             if (data.acknowledged) {
                 toast.success('Products added successfully');
                 // refetch();
+                navigate('/dashboard/myproduct');
             }
 
         })
