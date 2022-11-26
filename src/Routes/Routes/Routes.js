@@ -8,6 +8,7 @@ import Allseller from "../../Pages/Dashboard/Allseller/Allseller";
 import Alluser from "../../Pages/Dashboard/Alluser/Alluser";
 import Myorders from "../../Pages/Dashboard/Myorders/Myorders";
 import MyProduct from "../../Pages/Dashboard/MyProduct/MyProduct";
+import Payment from "../../Pages/Dashboard/Payment/Payment";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
 import SellerSignUp from "../../Pages/SellerSignUp/SellerSignUp";
@@ -68,6 +69,11 @@ const router = createBrowserRouter([
             {
                 path:'/dashboard/allsellers',
                 element:<Allseller></Allseller>
+            },
+            {
+                path:'/dashboard/payment',
+                element:<Payment></Payment>,
+                loader:({params})=>fetch(`http://localhost:5000/bookings/${params.id}`)
             }
         ]
     },
