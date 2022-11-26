@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
+import DashboardLayout from '../../../Layout/DashboardLayout';
 
 const Allseller = () => {
 
@@ -62,9 +63,9 @@ const Allseller = () => {
                                     <td>{user.name}</td>
                                     <td>{user.email}</td>
                                     <td><label onClick={()=>handleDelete(user._id)} className="btn btn-sm btn-error">Delete</label></td>
+                                    <td><label className="btn btn-sm btn-accent">Verify</label></td>
                                 </tr>)
                         }
-
                     </tbody>
                 </table>
             </div>

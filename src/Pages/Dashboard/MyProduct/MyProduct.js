@@ -93,19 +93,8 @@ const MyProduct = () => {
                                     <td>available</td>
                                     <td><label  onClick={()=>handleDelete(product._id)} className="btn btn-sm btn-error">Delete</label></td>
                                     <td>Advertise</td>
-                                    {/* <td>
-                                        {
-                                            booking.price && !booking.paid && <Link to={`/dashboard/payment/${booking._id}`}>
-                                                <button
-                                                    className='btn btn-primary btn-sm'
-                                                >Pay</button>
-                                            </Link>
-                                        }
-                                        {
-                                            booking.price && booking.paid && <span className='text-green-500'>Paid</span>
-                                        }
-                                    </td> */}
-                                </tr>)
+                                </tr>
+                                )
                         }
 
                     </tbody>
