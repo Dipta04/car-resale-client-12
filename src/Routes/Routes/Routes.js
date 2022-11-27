@@ -4,9 +4,9 @@ import Main from "../../Layout/Main";
 import Blog from "../../Pages/Blogs/Blog";
 import Category from "../../Pages/Category/Category";
 import AddProduct from "../../Pages/Dashboard/AddProduct/AddProduct";
-import Advertise from "../../Pages/Dashboard/Advertise/Advertise";
 import Allseller from "../../Pages/Dashboard/Allseller/Allseller";
 import Alluser from "../../Pages/Dashboard/Alluser/Alluser";
+import DashboardText from "../../Pages/Dashboard/DashboardText/DashboardText";
 import Myorders from "../../Pages/Dashboard/Myorders/Myorders";
 import MyProduct from "../../Pages/Dashboard/MyProduct/MyProduct";
 import Payment from "../../Pages/Dashboard/Payment/Payment";
@@ -14,6 +14,8 @@ import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
 import SellerSignUp from "../../Pages/SellerSignUp/SellerSignUp";
 import SignUp from "../../Pages/SignUp/SignUp";
+import AdminRoute from "../AdminRoute/AdminRoute";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -30,7 +32,7 @@ const router = createBrowserRouter([
             },
            {
              path:'/carOptions/:id',
-             element:<Category></Category>,
+             element:<PrivateRoute><Category></Category></PrivateRoute>,
              loader:({params})=>fetch(`http://localhost:5000/carOptions/${params.id}`)
            },
            {
@@ -52,8 +54,8 @@ const router = createBrowserRouter([
         element:<DashboardLayout></DashboardLayout>,
         children:[
             {
-                path: '/dashboard',
-                element:<Myorders></Myorders>
+                path: '/dashboard/myorders',
+                element:<PrivateRoute><Myorders></Myorders></PrivateRoute>
             },
             {
                 path: '/dashboard/addproduct',
@@ -65,16 +67,20 @@ const router = createBrowserRouter([
             },
             {
                 path:'/dashboard/allusers',
-                element:<Alluser></Alluser>
+                element:<AdminRoute><Alluser></Alluser></AdminRoute>
             },
             {
                 path:'/dashboard/allsellers',
-                element:<Allseller></Allseller>
+                element:<AdminRoute><Allseller></Allseller></AdminRoute>
             },
             {
                 path:'/dashboard/payment/:id',
                 element:<Payment></Payment>,
                 loader:({params})=>fetch(`http://localhost:5000/bookings/${params.id}`)
+            },
+            {
+                path:'/dashboard',
+                element:<DashboardText></DashboardText>
             }
         ]
     },

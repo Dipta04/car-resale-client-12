@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Navigate, Outlet, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Contexts/AuthProvider';
 import useAdmin from '../Hooks/useAdmin';
 import useSeller from '../Hooks/useSeller';
@@ -10,8 +10,7 @@ const DashboardLayout = () => {
     const { user } = useContext(AuthContext);
     const [isAdmin] = useAdmin(user?.email);
     const [isSeller] = useSeller(user?.email);
-
-
+    
     return (
         <div>
             <Navbar></Navbar>
@@ -26,7 +25,7 @@ const DashboardLayout = () => {
                     <ul className="menu p-4 w-80 text-base-content">
                         {
                             !isSeller && !isAdmin &&
-                            <li><Link to="/dashboard">My Orders</Link></li>
+                            <li><Link to="/dashboard/myorders">My Orders</Link></li>
                         }
                         {
                             isSeller && <>
