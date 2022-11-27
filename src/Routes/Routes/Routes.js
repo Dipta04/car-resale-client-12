@@ -33,7 +33,7 @@ const router = createBrowserRouter([
            {
              path:'/carOptions/:id',
              element:<PrivateRoute><Category></Category></PrivateRoute>,
-             loader:({params})=>fetch(`http://localhost:5000/carOptions/${params.id}`)
+             loader:({params})=>fetch(`https://assignment-server-eta.vercel.app/carOptions/${params.id}`)
            },
            {
             path:'/login',
@@ -76,7 +76,7 @@ const router = createBrowserRouter([
             {
                 path:'/dashboard/payment/:id',
                 element:<Payment></Payment>,
-                loader:({params})=>fetch(`http://localhost:5000/bookings/${params.id}`)
+                loader:({params})=>fetch(`https://assignment-server-eta.vercel.app/bookings/${params.id}`)
             },
             {
                 path:'/dashboard',

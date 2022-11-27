@@ -13,7 +13,7 @@ const MyProduct = () => {
     //     queryKey: ['products'],
     //     queryFn: async () => {
     //         try {
-    //             const res = await fetch('http://localhost:5000/products', {
+    //             const res = await fetch('https://assignment-server-eta.vercel.app/products', {
     //                 headers: {
     //                     authorization: `bearer ${localStorage.getItem('accessToken')}`
     //                 }
@@ -28,7 +28,7 @@ const MyProduct = () => {
     // });
 
     useEffect(() => {
-        fetch('http://localhost:5000/products', {
+        fetch('https://assignment-server-eta.vercel.app/products', {
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`
             }
@@ -43,7 +43,7 @@ const MyProduct = () => {
     }, [])
 
     const handleDelete = id => {
-        fetch(`http://localhost:5000/products/${id}`, {
+        fetch(`https://assignment-server-eta.vercel.app/products/${id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -61,7 +61,7 @@ const MyProduct = () => {
     }
 
     const handleAdvertise = id => {
-        fetch(`http://localhost:5000/products/advertise/${id}`, {
+        fetch(`https://assignment-server-eta.vercel.app/products/advertise/${id}`, {
             method: 'PUT',
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`

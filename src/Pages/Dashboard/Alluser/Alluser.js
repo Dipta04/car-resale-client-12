@@ -6,7 +6,7 @@ const Alluser = () => {
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/users', {
+        fetch('https://assignment-server-eta.vercel.app/users', {
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`
             }
@@ -21,7 +21,7 @@ const Alluser = () => {
     }, [])
 
     const handleDelete = id => {
-        fetch(`http://localhost:5000/users/${id}`, {
+        fetch(`https://assignment-server-eta.vercel.app/users/${id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`

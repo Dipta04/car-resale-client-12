@@ -43,7 +43,7 @@ const SellerSignUp = () => {
 
     const saveUser = (name, email, role) => {
         const user = { name, email, role };
-        fetch('http://localhost:5000/users', {
+        fetch('https://assignment-server-eta.vercel.app/users', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

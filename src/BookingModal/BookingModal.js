@@ -25,7 +25,7 @@ const BookingModal = ({ carOne, carTwo }) => {
             location,
             phone
         }
-        fetch('http://localhost:5000/bookings', {
+        fetch('https://assignment-server-eta.vercel.app/bookings', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

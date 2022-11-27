@@ -5,11 +5,12 @@ const Advertise = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/products', {
-      headers: {
-        authorization: `bearer ${localStorage.getItem('accessToken')}`
-      }
-    })
+    fetch('https://assignment-server-eta.vercel.app/products'
+    // , {
+    //   headers: {
+    //     authorization: `bearer ${localStorage.getItem('accessToken')}`
+    //   }}
+      )
       .then(res => {
         return res.json();
       })
@@ -22,8 +23,8 @@ const Advertise = () => {
   return (
     <div>
       {
-        products.map((product, i) =>
-        <div>
+        products.map(product =>
+          <>
           {
             product.advertise === 'advertise' &&
             <div className='my-10 grid grid-cols-2'>
@@ -38,7 +39,7 @@ const Advertise = () => {
           </div>
           </div>
          }
-          </div>
+          </>
         )
       }
     </div>

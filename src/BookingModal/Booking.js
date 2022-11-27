@@ -6,7 +6,7 @@ const Booking = () => {
     const [carBooking, setCarBooking] = useState([]);
 
    useEffect(()=>{
-    fetch('http://localhost:5000/cars')
+    fetch('https://assignment-server-eta.vercel.app/cars')
     .then(res => res.json())
     .then(data=>setCarBooking(data))
    },[])
