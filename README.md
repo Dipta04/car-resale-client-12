@@ -16,5 +16,8 @@ Feature:
  . React-hot-toast
  . Firebase
  . Stripe
+ . React-query
+ . React-hook-form
+ 
  
 
