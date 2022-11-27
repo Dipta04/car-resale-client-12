@@ -9,7 +9,7 @@ Feature:
  . Order products facility
  . Firebase Authentication
 
- Technology:
+ Client-side- Technology:
 
  . DaisyUi
  . React-router
@@ -18,6 +18,16 @@ Feature:
  . Stripe
  . React-query
  . React-hook-form
+
+Server-side- Technology:
+
+. Express
+. Cors
+. Jwt
+. Dot env
+. Mongodb atlas
+. Stripe
+ 
  
  
 
