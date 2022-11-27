@@ -9,6 +9,12 @@ Feature:
  . Order products facility
  . Firebase Authentication
 
- 
+ Technology:
+
+ . DaisyUi
+ . React-router
+ . React-hot-toast
+ . Firebase
+ . Stripe
  
 
